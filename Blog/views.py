@@ -39,7 +39,12 @@ class HomeView(ListView):
     """
     template_name = "Blog/Index.html"
     model = Blog
-    context_object_name = 'articles'
+    # context_object_name = 'articles'
+    extra_context = {
+        'articles': Blog.objects.filter(label__icontains="noLabel")[:5],
+        '100days': Blog.objects.filter(label__icontains="100DaysOfCode")[:5],
+        'challenges': Blog.objects.filter(label__icontains="CodeChallenges")[:5],
+    }
     ordering = ['-created_at']
 
 

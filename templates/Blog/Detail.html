@@ -24,7 +24,25 @@
 <main>
     <div class="content">
         <div class="c-header">
-            <img src="{% static 'Images/vue.png' %}" alt="">
+            {% if object.tag == 'javascript' or  object.tag == 'Es6' %}
+                <img src="{% static 'Images/jstr.png' %}" alt="Js icon">
+            {% elif object.tag == 'vue js' %}
+                <img src="{% static 'Images/vue.png' %}" alt="Js icon">
+            {% elif object.tag == 'Python' %}
+                <img src="{% static 'Images/python.jpg' %}" alt="python icon">
+            {% elif object.tag == 'Express js' %}
+                <img src="{% static 'Images/expressjslogo.png' %}" alt="Js icon">
+            {% elif object.tag == 'node js' %}
+                <img src="{% static 'Images/nodejs.svg' %}" alt="node js icon">
+            {% elif object.tag == 'Flutter' %}
+                <img src="{% static 'Images/flutter2.png' %}" alt="Flutter icon">
+            {% elif object.tag == 'Laravel' %}
+                <img src="{% static 'Images/Laravel.png' %}" alt="Laravel icon">
+            {% elif object.tag == 'Django' %}
+                <img src="{% static 'Images/dj.png' %}" alt="Django icon">
+            {% else %}
+            {% endif %}
+
             <div class="h-detail">
                 <h1>{{ object.Title }}</h1>
                 <div class="htd">

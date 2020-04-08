@@ -11,6 +11,25 @@ class Blog(models.Model):
     """
     Blog model
     """
+    py = 'Python'
+    topics = [
+        (py, "Python"),
+        ("javascript", "javascript  "),
+        ("vue js", "vue js"),
+        ("Express js", "Express js"),
+        ("Laravel", "Laravel"),
+        ("Flutter", "Flutter"),
+        ("Django", "Django"),
+        ("Es6", "Es6"),
+        ("IDEs", "IDEs"),
+        ("node js", "node js"),
+    ]
+    noLabel = 'noLabel'
+    labels = [
+        (noLabel, 'noLabel'),
+        ("100DaysOfCode", "100DaysOfCode"),
+        ("CodeChallenges", "CodeChallenges"),
+    ]
     Title = models.CharField(max_length=2000, null=False, blank=False, help_text='Article title is required',
                              unique=True)
     Author = models.ForeignKey(User, on_delete=models.SET_DEFAULT, default=1)
@@ -18,6 +37,8 @@ class Blog(models.Model):
     slug = models.SlugField(max_length=200, null=False, blank=False, help_text='Article slug is required', unique=True)
     created_at = models.DateTimeField(_('created at'), default=timezone.now)
     read_time = models.CharField(max_length=200)
+    tag = models.CharField(max_length=200, blank=False, null=False, choices=topics, default=py)
+    label = models.CharField(max_length=200, blank=False, null=False, choices=labels, default=noLabel)
 
     def __str__(self):
         return self.Title

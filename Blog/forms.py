@@ -45,7 +45,7 @@ class NewBlogForm(forms.ModelForm):
 
     class Meta:
         model = Blog
-        fields = ('Title', 'Author', 'slug', 'created_at', 'Body',)
+        fields = ('Title', 'Author', 'slug', 'tag', 'label', 'created_at', 'Body')
 
 
 class SubForm(forms.ModelForm):
