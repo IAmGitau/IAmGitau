@@ -50,10 +50,16 @@
                                 <img src="{% static 'Images/vue.png' %}" alt="Js icon">
                             </div>
                             <div class="sn-art-tl">
-                                <p>{{ article.Title }}</p>
-                                <article class="context">
-                                    {{ article.Body| safe |truncatewords_html:10 }}
-                                </article>
+                                <p class="art-title">{{ article.Title }}</p>
+                                {% if article.read < '1' %}
+                                    <p class="read_time">less than 1 minutes</p>
+                                {% elif article.read >= '1' %}
+                                    <p class="read_time">{{ article.read }} minutes</p>
+                                {% elif article.read >= '10' %}
+                                    <p class="read_time">10 minutes</p>
+                                {% else %}
+                                    <p></p>
+                                {% endif %}
                             </div>
                             {% if article %}
                                 <p class="ar-label">! New !</p>
