@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>404 | lancing writing</title>
+    {% load static %}
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: hsl(0, 0%, 99%);
+            height: 100vh;
+        }
+
+        .page_for404 {
+            height: 100%;
+            width: 80%;
+            margin: 0 auto;
+        }
+
+        .text404 {
+            width: 50%;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+            flex-direction: column;
+        }
+
+        p {
+            font-size: 50px;
+            color: hsl(339, 100%, 48%);
+            font-weight: bolder;
+        }
+
+        a {
+            text-decoration: none;
+            color: #2a2a2a;
+            font-size: 18px;
+            font-weight: bold;
+            border: 1px solid #00da84;
+            border-radius: 10px;
+            padding: 10px 30px;
+            margin-top: 10px;
+            background-color: transparent;
+        }
+
+        a:hover {
+            background-color: #00da84;
+        }
+
+        .Image_for404 {
+            width: 60%;
+            margin: 0 auto;
+            padding: 30px 0;
+        }
+
+        .Image_for404 img {
+            width: 100%;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+<div class="page_for404">
+    <div class="Image_for404">
+        <img src="{% static 'Images/404.svg' %}" alt="404 page not found">
+    </div>
+    <div class="text404">
+        <p>oooooops...</p>
+        <p>{{ request_path }}</p>
+        <a href="{% url 'Blog:Home' %}">Home</a>
+        <a href="{% url 'Blog:Articles' %}">Articles</a>
+    </div>
+</div>
+</body>
+</html>
+

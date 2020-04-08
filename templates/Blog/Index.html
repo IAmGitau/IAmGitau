@@ -1,0 +1,216 @@
+{% extends 'Blog/App.html' %}
+{% block Header %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/Index.css' %}">
+{% endblock %}
+{% block Content %}
+    <div class="content">
+        <div class="my-intro">
+            <div class="my-slf">
+                <h1>Hey, I'm Joseph Gitau.</h1>
+                <p>
+                    I'm a full stack software developer. I write about Python,
+                    Vue js, Express js, modern JavaScript, Django, Flutter and Laravel Framework.
+                </p>
+                <div class="git-hub">
+                    <a target="_blank" href="https://github.com/Hibryd" style='text-decoration:none;'>
+                        <div class="git-name">
+                            <img src="{% static 'Images/github.svg' %}" alt="github icon">
+                            <span>Joseph Gitau</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="sub-to">
+                <div class="email-form">
+                    <div class="my-img">
+                        <img src="{% static 'Images/male_avatar.svg' %}" alt="photo">
+                    </div>
+                    <h2>Email Newsletters</h2>
+                    <p>Subscribe today to get email updates when a I post a new article.</p>
+                    <a class="sub-btn" href="{% url 'Blog:Subscribe' %}">Subscribe</a>
+                </div>
+            </div>
+        </div>
+        <div class="cly-arc">
+            <div class="lts-arc">
+                <div class="lts-msp-tl">
+                    <h3>Latest articles</h3>
+                    <a href="{% url 'Blog:Articles' %}">View All</a>
+                </div>
+                <div class="lts-msp-art">
+                    {% for article in articles %}
+                        <a href="{% url 'Blog:Article_Detail' article.slug %}">
+                            <div class="sn-art">
+                                <div class="sn-img">
+                                    <img src="{% static 'Images/vue.png' %}" alt="Js icon">
+                                </div>
+                                <div class="sn-art-tl">
+                                    <p class="art-title">{{ article.Title }}</p>
+                                    {% if article.read < '1' %}
+                                        <p class="read_time">less than 1 minutes</p>
+                                    {% elif article.read >= '1' %}
+                                        <p class="read_time">{{ article.read }} minutes</p>
+                                    {% elif article.read >= '10' %}
+                                        <p class="read_time">10 minutes</p>
+                                    {% else %}
+                                        <p></p>
+                                    {% endif %}
+                                </div>
+                                {% if article %}
+                                    <p class="ar-label">! New !</p>
+                                {% endif %}
+                            </div>
+                        </a>
+                    {% empty %}
+                        <div style="padding: 40px; background-color: #eeeeee; border-radius: 5px; margin: 5px 0">
+                            <p style="display: flex;
+                            flex-direction: column;
+                            justify-content: center;
+                            align-items: center;
+                            font-size: 1.2em;
+                            color:#2a2a2a;"> No Posts Posted of late </p>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="mst-p-arc">
+                <div class="lts-msp-tl" style="margin-top: 30px">
+                    <h3>Most popular articles</h3>
+                    <a href="{% url 'Blog:Articles' %}">View All</a>
+                </div>
+                <div class="lts-msp-art">
+                    {% for article in articles %}
+                        <a href="{% url 'Blog:Article_Detail' article.slug %}">
+                            <div class="sn-art">
+                                <div class="sn-img">
+                                    <img src="{% static 'Images/vue.png' %}" alt="Js icon">
+                                </div>
+                                <div class="sn-art-tl">
+                                    <p class="art-title">{{ article.Title }}</p>
+                                    {% if article.read < '1' %}
+                                        <p class="read_time">less than 1 minutes</p>
+                                    {% elif article.read >= '1' %}
+                                        <p class="read_time">{{ article.read }} minutes</p>
+                                    {% elif article.read >= '10' %}
+                                        <p class="read_time">10 minutes</p>
+                                    {% else %}
+                                        <p></p>
+                                    {% endif %}
+                                </div>
+                                {% if article %}
+                                    <p class="ar-label">! New !</p>
+                                {% endif %}
+                            </div>
+                        </a>
+                    {% empty %}
+                        <div style="padding: 40px; background-color: #eeeeee; border-radius: 5px; margin: 5px 0">
+                            <p style="display: flex;
+                            flex-direction: column;
+                            justify-content: center;
+                            align-items: center;
+                            font-size: 1.2em;
+                            color:#2a2a2a;"> No Posts Posted of late </p>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="mst-p-arc">
+                <div class="lts-msp-tl" style="margin-top: 30px">
+                    <h3>Code Challenges </h3>
+                    <a href="{% url 'Blog:Articles' %}">View All</a>
+                </div>
+                <div class="lts-msp-art">
+                    {% for article in articles %}
+                        <a href="{% url 'Blog:Article_Detail' article.slug %}">
+                            <div class="sn-art">
+                                <div class="sn-img">
+                                    <img src="{% static 'Images/vue.png' %}" alt="Js icon">
+                                </div>
+                                <div class="sn-art-tl">
+                                    <p class="art-title">{{ article.Title }}</p>
+                                    {% if article.read < '1' %}
+                                        <p class="read_time">less than 1 minutes</p>
+                                    {% elif article.read >= '1' %}
+                                        <p class="read_time">{{ article.read }} minutes</p>
+                                    {% elif article.read >= '10' %}
+                                        <p class="read_time">10 minutes</p>
+                                    {% else %}
+                                        <p></p>
+                                    {% endif %}
+                                </div>
+                                {% if article %}
+                                    <p class="ar-label">! New !</p>
+                                {% endif %}
+                            </div>
+                        </a>
+                    {% empty %}
+                        <div style="padding: 40px; background-color: #eeeeee; border-radius: 5px; margin: 5px 0">
+                            <p style="display: flex;
+                            flex-direction: column;
+                            justify-content: center;
+                            align-items: center;
+                            font-size: 1.2em;
+                            color:#2a2a2a;"> No Posts Posted of late </p>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="mst-p-arc">
+                <div class="lts-msp-tl" style="margin-top: 30px">
+                    <h3>100 Days of code</h3>
+                    <a href="{% url 'Blog:Articles' %}">View All</a>
+                </div>
+                <div class="lts-msp-art">
+                    {% for article in articles %}
+                        <a href="{% url 'Blog:Article_Detail' article.slug %}">
+                            <div class="sn-art">
+                                <div class="sn-img">
+                                    <img src="{% static 'Images/vue.png' %}" alt="Js icon">
+                                </div>
+                                <div class="sn-art-tl">
+                                    <p class="art-title">{{ article.Title }}</p>
+                                    {% if article.read < '1' %}
+                                        <p class="read_time">less than 1 minutes</p>
+                                    {% elif article.read >= '1' %}
+                                        <p class="read_time">{{ article.read }} minutes</p>
+                                    {% elif article.read >= '10' %}
+                                        <p class="read_time">10 minutes</p>
+                                    {% else %}
+                                        <p></p>
+                                    {% endif %}
+                                </div>
+                                {% if article %}
+                                    <p class="ar-label">! New !</p>
+                                {% endif %}
+                            </div>
+                        </a>
+                    {% empty %}
+                        <div style="padding: 40px; background-color: #eeeeee; border-radius: 5px; margin: 5px 0">
+                            <p style="display: flex;
+                            flex-direction: column;
+                            justify-content: center;
+                            align-items: center;
+                            font-size: 1.2em;
+                            color:#2a2a2a;"> No Posts Posted of late </p>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        <div class="education-M">
+            <h3>Learn coding for free.</h3>
+            <div class="edu-c">
+                <ul>
+                    <li title="Jetbrains Academy"><a target="_blank" href="https://www.jetbrains.com/academy">Jetbrains
+                        Academy </a></li>
+                    <li title="Solo Learn"><a target="_blank" href="https://www.sololearn.com">Solo Learn </a></li>
+                    <li title="W3schools"><a target="_blank" href="https://w3schools.com">W3schools </a></li>
+                    <li title="IamGitau"><a href="https://iamgitau.herokuapp.com">IamGitau </a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block js %}
+{% endblock %}

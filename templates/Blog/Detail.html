@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+    {% load static %}
+    <link rel="shortcut icon" href="{% static 'Images/male_avatar.svg' %}" type="image/x-icon" sizes="32x32">
+    <link rel="stylesheet" href="{% static "css/pora.css" %}">
+    <link rel="stylesheet" href="{% static 'css/Header.css' %}">
+    <link rel="stylesheet" href="{% static 'css/Detail.css' %}">
+    <title>IamGitau | Full Stack Developer Articles</title>
+
+</head>
+
+<body class='typora-export os-windows'>
+
+{% include 'Blog/Include/Header.html' %}
+
+<main>
+    <div class="content">
+        <div class="c-header">
+            <img src="{% static 'Images/vue.png' %}" alt="">
+            <div class="h-detail">
+                <h1>{{ object.Title }}</h1>
+                <div class="htd">
+                    <p>{{ object.Author }}</p>
+                    <p>{{ object.created_at }}</p>
+                </div>
+            </div>
+        </div>
+        {% if user.is_authenticated %}
+            <div class="edit-delete">
+                <ul>
+                    <li><a style="background-color: #00da84" href="edit">edit</a></li>
+                    <li><a style="background-color: #ff2600;" href="delete">delete</a></li>
+                </ul>
+            </div>
+        {% endif %}
+        <div class="container">
+            <p>{{ object.Body|safe }}</p>
+        </div>
+    </div>
+</main>
+<script src="{% static 'js/scroll.js' %}"></script>
+{% include 'Blog/Include/Footer.html' %}
+</body>
+</html>

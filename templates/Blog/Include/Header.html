@@ -1,0 +1,27 @@
+<header id="Dheader">
+
+    <div class="header">
+
+        <div class="logo">
+            <a href="{% url 'Blog:Home' %}">IamGitau</a>
+        </div>
+
+        <div class="cn-rt">
+            <nav>
+                <ul>
+                    <li>
+                        <a href="{% url 'Blog:Articles' %}">articles</a></li>
+
+                    {% if user.is_authenticated %}
+
+                        <li><a href="{% url 'Blog:Who' %}">{{ user.username }}</a></li>
+                        <li><a href="{% url 'Blog:new_Article' %}">new</a></li>
+
+                    {% else %}
+                        <li><a href="{% url 'Blog:Who' %}">who?</a></li>
+                    {% endif %}
+                </ul>
+            </nav>
+        </div>
+    </div>
+</header>

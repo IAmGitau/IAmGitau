@@ -1,0 +1,81 @@
+{% extends 'Blog/App.html' %}
+{% block Header %}
+    <style>
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-evenly
+        }
+
+        .form {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center
+        }
+
+        .top-Form {
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            padding: 20px 0;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        button {
+            background-color: #ff2600;
+            color: white;
+            outline: none;
+            border-radius: 5px;
+            padding: 5px 10px;
+            border: 1px solid transparent;
+        }
+
+        .top-Form a {
+            background-color: #4f5ddf;
+            color: white;
+            padding: 5px 15px;
+            border: 1px solid transparent;
+            border-radius: 5px;
+        }
+        .form h2 {
+            padding: 10px 0;
+            text-transform: uppercase;
+        }
+
+        .content {
+            height: 70vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+        }
+
+    </style>
+{% endblock %}
+
+{% block Content %}
+    <div class="content">
+
+        <form method="post">
+
+            {% csrf_token %}
+
+            <div class="form">
+                <h2>{{ object.Title }}</h2>
+                <p>Are you sure you want to delete article?</p>
+            </div>
+
+            <div class="top-Form">
+
+                <button type="submit">Yes, delete</button>
+                <a href="{% url 'Blog:Article_Detail' object.slug %}" type="submit">cancel</a>
+
+            </div>
+        </form>
+
+    </div>
+{% endblock %}

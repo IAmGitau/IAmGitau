@@ -1,0 +1,77 @@
+.content .edit-delete ul {
+  display: flex;
+  flex-direction: row;
+  width: 30%;
+  justify-content: space-between;
+  padding: 20px 0;
+}
+.content .edit-delete ul li {
+  list-style: none;
+  margin: 3px 0;
+}
+.content .edit-delete ul li a {
+  text-decoration: none;
+  padding: 5px 25px;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  text-align: center;
+  color: white;
+  text-transform: capitalize;
+  font-size: 1.1em;
+}
+.content .edit-delete ul li a:hover {
+  opacity: 0.7;
+}
+.content .c-header {
+  display: flex;
+  height: 25vh;
+  border: 1px solid;
+  border-radius: 10px;
+  padding: 2em;
+}
+.content .c-header img {
+  width: 100px;
+  height: auto;
+}
+.content .c-header .h-detail {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  padding-left: 5em;
+  text-align: left;
+}
+.content .c-header .h-detail h1 {
+  font-size: 1.5em;
+  color: #4f5ddf;
+  font-weight: bolder;
+  margin: 0;
+}
+.content .c-header .h-detail .htd {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+.content .c-header .h-detail .htd p {
+  color: #2a2a2a;
+  font-size: 0.8em;
+  line-height: 1;
+  padding: 5px 0;
+  margin: 0;
+  text-align: left;
+}
+.content .c-header .h-detail .htd p:first-child {
+  text-transform: uppercase;
+}
+.content h4 {
+  font-size: 1.5em;
+  color: #2a2a2a;
+  padding: 10px 0;
+}
+.content p {
+  color: #2a2a2a;
+  font-size: 1.1em;
+  line-height: 2;
+  padding: 20px 0;
+}
+
+/*# sourceMappingURL=Detail.css.map */

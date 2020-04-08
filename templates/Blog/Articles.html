@@ -1,0 +1,126 @@
+{% extends 'Blog/App.html' %}
+{% block Header %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/Articles.css' %}">
+    <link rel="stylesheet" href="{% static 'css/Index.css' %}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+{% endblock %}
+{% block Content %}
+    <div class="content">
+        <div class="arc-form">
+            <div class="arc-f-fm">
+                <div class="search-icon">
+                    <i id="SearchIcon" class="fas fa-search fa-lg"></i>
+                </div>
+                <div class="search-bar">
+                    <form>
+                        <label>
+                            <input type="text" id="SearchBar" onkeyup="SearchArticles()" placeholder="Search Article">
+                        </label>
+                    </form>
+                </div>
+            </div>
+            <div class="arc-fl-fm">
+                <h2>Articles</h2>
+                <div class="arc-filters">
+                    <p>Vue js</p>
+                    <p>Express js</p>
+                    <p>node js</p>
+                    <p>Flutter</p>
+                </div>
+                <div class="arc-filters colored">
+                    <p>Python</p>
+                    <p>Django</p>
+                    <p>Laravel</p>
+                    <p>Es6</p>
+                </div>
+                <div class="arc-filters">
+                    <p>IDEs</p>
+                    <p>CodeChallenges</p>
+                    <p>#100DaysOfCode</p>
+                </div>
+            </div>
+        </div>
+        <div class="cly-arc" id="allArticles">
+            <div class="lts-msp-art">
+                {% for article in articles %}
+                    <a class="articleLink" href="{% url 'Blog:Article_Detail' article.slug %}">
+                        <div class="sn-art">
+                            <div class="sn-img">
+                                <img src="{% static 'Images/vue.png' %}" alt="Js icon">
+                            </div>
+                            <div class="sn-art-tl">
+                                <p>{{ article.Title }}</p>
+                                <article class="context">
+                                    {{ article.Body| safe |truncatewords_html:10 }}
+                                </article>
+                            </div>
+                            {% if article %}
+                                <p class="ar-label">! New !</p>
+                            {% endif %}
+                        </div>
+                    </a>
+                {% empty %}
+                    <div id="noArticles"
+                         style="padding: 40px; background-color: #eeeeee; border-radius: 5px; margin: 5px 0">
+                        <p style="display: flex;
+                            flex-direction: column;
+                            justify-content: center;
+                            align-items: center;
+                            font-size: 1.2em;
+                            color:#2a2a2a;"> No Posts Posted of late </p>
+                    </div>
+                {% endfor %}
+                <div id="noArticles"
+                     style="display: none;padding: 40px; background-color: #eeeeee; border-radius: 5px; margin: 5px 0">
+                    <p style="display: flex;
+                            flex-direction: column;
+                            justify-content: center;
+                            align-items: center;
+                            font-size: 1.2em;
+                            color:#2a2a2a;"> Sorry Such Articles Posted </p>
+                </div>
+            </div>
+        </div>
+        <div class="education-M">
+            <h3>Learn coding for free.</h3>
+            <div class="edu-c">
+                <ul>
+                    <li title="Jetbrains Academy"><a target="_blank" href="https://www.jetbrains.com/academy">Jetbrains
+                        Academy </a></li>
+                    <li title="Solo Learn"><a target="_blank" href="https://www.sololearn.com">Solo Learn </a></li>
+                    <li title="W3schools"><a target="_blank" href="https://w3schools.com">W3schools </a></li>
+                    <li title="IamGitau"><a href="https://iamgitau.herokuapp.com">IamGitau </a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block js %}
+    <script>
+        function SearchArticles() {
+            let SearchBar, filter, allArticles, articleLink, titleArticle, i, txtValue;
+
+            SearchBar = document.getElementById("SearchBar");
+            filter = SearchBar.value.toUpperCase();
+            allArticles = document.getElementById("allArticles");
+            articleLink = allArticles.getElementsByClassName("articleLink");
+            {#noArticles = document.getElementById('noArticles');#}
+            for (i = 0; i < articleLink.length; i++) {
+                {#if (articleLink.length === i) {#}
+                {#noArticles.style.display = 'block';#}
+                {#    noArticles.style.display = 'none';#}
+                titleArticle = articleLink[i].getElementsByTagName("p")[0];
+                txtValue = titleArticle.textContent || titleArticle.innerText;
+
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    articleLink[i].style.display = "";
+                } else {
+                    articleLink[i].style.display = "none";
+                }
+            }
+        }
+    </script>
+    <script src="{% static 'js/search.js' %}"></script>
+    <script src="{% static 'js/vData.js' %}"></script>
+{% endblock %}

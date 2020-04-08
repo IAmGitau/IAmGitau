@@ -1,0 +1,41 @@
+{% extends 'Blog/App.html' %}
+
+{% block Header %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/About.css' %}">
+{% endblock %}
+
+{% block Content %}
+    <div class="content">
+        <h1>Who am I?</h1>
+        <div class="proContent">
+            <p>
+                I’m Joseph Gitau, a full stack software developer. I like to write about things that I have learned and
+                problems that I face.
+                I am also a machine learning and Deep learning enthusiast. I love playing games out of work : Call of
+                Duty, Fortnite, and my favorite Eve online.
+            </p>
+            <div class="ides">
+                <h2>Editors</h2>
+                <ul>
+                    <li><a target="_blank" title="Pycharm" href="https://www.jetbrains.com/pycharm/">Pycharm</a></li>
+                    <li><a target="_blank" title="Phpstorm" href="https://www.jetbrains.com/phpstorm/">PhpStorm</a></li>
+                    <li><a target="_blank" title="Android Studio" href="https://developer.android.com/studio">Android
+                        Studio</a></li>
+                </ul>
+            </div>
+            <div class="ides">
+                <h2>Email</h2>
+                <ul>
+                    <li><a  title="qwartypa@gmail.com">qwartypa@gmail.com</a></li>
+                </ul>
+            </div>
+            <div class="ides">
+                <h2>BTC</h2>
+                <ul>
+                    <li>3BL2Lrq5xzeyiwxnS62s6znPQdSxDThDFh</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+{% endblock %}
