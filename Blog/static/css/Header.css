@@ -20,7 +20,7 @@ header .header .logo a {
   font-size: 1.5em;
   font-weight: bolder;
   text-decoration: none;
-  color: #00cb74;
+  color: #00d37b;
   font-style: italic;
 }
 header .header .cn-rt {
@@ -36,22 +36,22 @@ header .header .cn-rt nav ul {
   justify-content: space-between;
 }
 header .header .cn-rt nav ul li {
-  font-size: 1em;
-  text-transform: capitalize;
   list-style: none;
+}
+header .header .cn-rt nav ul li a {
+  text-decoration: none;
+  color: #505050;
   font-weight: bold;
   letter-spacing: 0.5px;
   border: 1px solid transparent;
   border-radius: 5px;
   padding: 7px 10px;
+  font-size: 1em;
+  text-transform: capitalize;
 }
-header .header .cn-rt nav ul li:hover {
+header .header .cn-rt nav ul li a:hover {
   background-color: #fcfcfc;
   border: 1px solid rgba(19, 18, 18, 0.116);
-}
-header .header .cn-rt nav ul li a {
-  text-decoration: none;
-  color: #505050;
 }
 header .header .cn-rt nav ul li a span {
   text-transform: none;

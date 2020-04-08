@@ -40,54 +40,9 @@
                 </div>
                 <div class="lts-msp-art">
                     {% for article in articles %}
-                        <a href="{% url 'Blog:Article_Detail' article.slug %}">
-                            <div class="sn-art">
-                                <div class="sn-img">
-                                    {% if article.tag == 'javascript' or  article.tag == 'Es6' %}
-                                        <img src="{% static 'Images/jstr.png' %}" alt="Js icon">
-                                    {% elif article.tag == 'vue js' %}
-                                        <img src="{% static 'Images/vue.png' %}" alt="Js icon">
-                                    {% elif article.tag == 'Python' %}
-                                        <img src="{% static 'Images/python.jpg' %}" alt="python icon">
-                                    {% elif article.tag == 'Express js' %}
-                                        <img src="{% static 'Images/expressjslogo.png' %}" alt="Js icon">
-                                    {% elif article.tag == 'node js' %}
-                                        <img src="{% static 'Images/nodejs.svg' %}" alt="node js icon">
-                                    {% elif article.tag == 'Flutter' %}
-                                        <img src="{% static 'Images/flutter2.png' %}" alt="Flutter icon">
-                                    {% elif article.tag == 'Laravel' %}
-                                        <img src="{% static 'Images/Laravel.png' %}" alt="Laravel icon">
-                                    {% elif article.tag == 'Django' %}
-                                        <img src="{% static 'Images/dj.png' %}" alt="Django icon">
-                                    {% else %}
-                                    {% endif %}
-                                </div>
-                                <div class="sn-art-tl">
-                                    <p class="art-title">{{ article.Title }}</p>
-                                    {% if article.read < '1' %}
-                                        <p class="read_time">less than 1 minutes</p>
-                                    {% elif article.read >= '1' %}
-                                        <p class="read_time">{{ article.read }} minutes</p>
-                                    {% elif article.read >= '10' %}
-                                        <p class="read_time">10 minutes</p>
-                                    {% else %}
-                                        <p></p>
-                                    {% endif %}
-                                </div>
-                                {% if article %}
-                                    <p class="ar-label">! New !</p>
-                                {% endif %}
-                            </div>
-                        </a>
+                        {% include 'Blog/Include/SingleArticle.html' %}
                     {% empty %}
-                        <div style="padding: 40px; background-color: #eeeeee; border-radius: 5px; margin: 5px 0">
-                            <p style="display: flex;
-                            flex-direction: column;
-                            justify-content: center;
-                            align-items: center;
-                            font-size: 1.2em;
-                            color:#2a2a2a;"> No Posts Posted of late </p>
-                        </div>
+                        {% include 'Blog/Include/ArticleError.html' %}
                     {% endfor %}
                 </div>
             </div>
@@ -98,173 +53,42 @@
                 </div>
                 <div class="lts-msp-art">
                     {% for article in articles %}
-                        <a href="{% url 'Blog:Article_Detail' article.slug %}">
-                            <div class="sn-art">
-                                <div class="sn-img">
-                                    {% if article.tag == 'javascript' or  article.tag == 'Es6' %}
-                                        <img src="{% static 'Images/jstr.png' %}" alt="Js icon">
-                                    {% elif article.tag == 'vue js' %}
-                                        <img src="{% static 'Images/vue.png' %}" alt="Js icon">
-                                    {% elif article.tag == 'Python' %}
-                                        <img src="{% static 'Images/python.jpg' %}" alt="python icon">
-                                    {% elif article.tag == 'Express js' %}
-                                        <img src="{% static 'Images/expressjslogo.png' %}" alt="Js icon">
-                                    {% elif article.tag == 'node js' %}
-                                        <img src="{% static 'Images/nodejs.svg' %}" alt="node js icon">
-                                    {% elif article.tag == 'Flutter' %}
-                                        <img src="{% static 'Images/flutter2.png' %}" alt="Flutter icon">
-                                    {% elif article.tag == 'Laravel' %}
-                                        <img src="{% static 'Images/Laravel.png' %}" alt="Laravel icon">
-                                    {% elif article.tag == 'Django' %}
-                                        <img src="{% static 'Images/dj.png' %}" alt="Django icon">
-                                    {% else %}
-                                    {% endif %}
-                                </div>
-                                <div class="sn-art-tl">
-                                    <p class="art-title">{{ article.Title }}</p>
-                                    {% if article.read < '1' %}
-                                        <p class="read_time">less than 1 minutes</p>
-                                    {% elif article.read >= '1' %}
-                                        <p class="read_time">{{ article.read }} minutes</p>
-                                    {% elif article.read >= '10' %}
-                                        <p class="read_time">10 minutes</p>
-                                    {% else %}
-                                        <p></p>
-                                    {% endif %}
-                                </div>
-                                {% if article %}
-                                    <p class="ar-label">! New !</p>
-                                {% endif %}
-                            </div>
-                        </a>
+                        {% include 'Blog/Include/SingleArticle.html' %}
                     {% empty %}
-                        <div style="padding: 40px; background-color: #eeeeee; border-radius: 5px; margin: 5px 0">
-                            <p style="display: flex;
-                            flex-direction: column;
-                            justify-content: center;
-                            align-items: center;
-                            font-size: 1.2em;
-                            color:#2a2a2a;"> No Posts Posted of late </p>
-                        </div>
+                        {% include 'Blog/Include/ArticleError.html' %}
                     {% endfor %}
                 </div>
             </div>
-            <div class="mst-p-arc">
-                <div class="lts-msp-tl" style="margin-top: 30px">
-                    <h3>Code Challenges </h3>
-                    <a href="{% url 'Blog:Articles' %}">View All</a>
+            {% if challenges %}
+                <div class="mst-p-arc">
+                    <div class="lts-msp-tl" style="margin-top: 30px">
+                        <h3>Code Challenges </h3>
+                        <a href="{% url 'Blog:Articles' %}">View All</a>
+                    </div>
+                    <div class="lts-msp-art">
+                        {% for article in challenges %}
+                            {% include 'Blog/Include/SingleArticle.html' %}
+                        {% empty %}
+                            {% include 'Blog/Include/ArticleError.html' %}
+                        {% endfor %}
+                    </div>
                 </div>
-                <div class="lts-msp-art">
-                    {% for article in challenges %}
-                        <a href="{% url 'Blog:Article_Detail' article.slug %}">
-                            <div class="sn-art">
-                                <div class="sn-img">
-                                    {% if article.tag == 'javascript' or  article.tag == 'Es6' %}
-                                        <img src="{% static 'Images/jstr.png' %}" alt="Js icon">
-                                    {% elif article.tag == 'vue js' %}
-                                        <img src="{% static 'Images/vue.png' %}" alt="Js icon">
-                                    {% elif article.tag == 'Python' %}
-                                        <img src="{% static 'Images/python.jpg' %}" alt="python icon">
-                                    {% elif article.tag == 'Express js' %}
-                                        <img src="{% static 'Images/expressjslogo.png' %}" alt="Js icon">
-                                    {% elif article.tag == 'node js' %}
-                                        <img src="{% static 'Images/nodejs.svg' %}" alt="node js icon">
-                                    {% elif article.tag == 'Flutter' %}
-                                        <img src="{% static 'Images/flutter2.png' %}" alt="Flutter icon">
-                                    {% elif article.tag == 'Laravel' %}
-                                        <img src="{% static 'Images/Laravel.png' %}" alt="Laravel icon">
-                                    {% elif article.tag == 'Django' %}
-                                        <img src="{% static 'Images/dj.png' %}" alt="Django icon">
-                                    {% else %}
-                                    {% endif %}
-                                </div>
-                                <div class="sn-art-tl">
-                                    <p class="art-title">{{ article.Title }}</p>
-                                    {% if article.read < '1' %}
-                                        <p class="read_time">less than 1 minutes</p>
-                                    {% elif article.read >= '1' %}
-                                        <p class="read_time">{{ article.read }} minutes</p>
-                                    {% elif article.read >= '10' %}
-                                        <p class="read_time">10 minutes</p>
-                                    {% else %}
-                                        <p></p>
-                                    {% endif %}
-                                </div>
-                                {% if article %}
-                                    <p class="ar-label">! New !</p>
-                                {% endif %}
-                            </div>
-                        </a>
-                    {% empty %}
-                        <div style="padding: 40px; background-color: #eeeeee; border-radius: 5px; margin: 5px 0">
-                            <p style="display: flex;
-                            flex-direction: column;
-                            justify-content: center;
-                            align-items: center;
-                            font-size: 1.2em;
-                            color:#2a2a2a;"> No Posts Posted of late </p>
-                        </div>
-                    {% endfor %}
+            {% endif %}
+            {% if 100days %}
+                <div class="mst-p-arc">
+                    <div class="lts-msp-tl" style="margin-top: 30px">
+                        <h3>100 Days of code</h3>
+                        <a href="{% url 'Blog:Articles' %}">View All</a>
+                    </div>
+                    <div class="lts-msp-art">
+                        {% for article in 100days %}
+                            {% include 'Blog/Include/SingleArticle.html' %}
+                        {% empty %}
+                            {% include 'Blog/Include/ArticleError.html' %}
+                        {% endfor %}
+                    </div>
                 </div>
-            </div>
-            <div class="mst-p-arc">
-                <div class="lts-msp-tl" style="margin-top: 30px">
-                    <h3>100 Days of code</h3>
-                    <a href="{% url 'Blog:Articles' %}">View All</a>
-                </div>
-                <div class="lts-msp-art">
-                    {% for article in 100days %}
-                        <a href="{% url 'Blog:Article_Detail' article.slug %}">
-                            <div class="sn-art">
-                                <div class="sn-img">
-                                    {% if article.tag == 'javascript' or  article.tag == 'Es6' %}
-                                        <img src="{% static 'Images/jstr.png' %}" alt="Js icon">
-                                    {% elif article.tag == 'vue js' %}
-                                        <img src="{% static 'Images/vue.png' %}" alt="Js icon">
-                                    {% elif article.tag == 'Python' %}
-                                        <img src="{% static 'Images/python.jpg' %}" alt="python icon">
-                                    {% elif article.tag == 'Express js' %}
-                                        <img src="{% static 'Images/expressjslogo.png' %}" alt="Js icon">
-                                    {% elif article.tag == 'node js' %}
-                                        <img src="{% static 'Images/nodejs.svg' %}" alt="node js icon">
-                                    {% elif article.tag == 'Flutter' %}
-                                        <img src="{% static 'Images/flutter2.png' %}" alt="Flutter icon">
-                                    {% elif article.tag == 'Laravel' %}
-                                        <img src="{% static 'Images/Laravel.png' %}" alt="Laravel icon">
-                                    {% elif article.tag == 'Django' %}
-                                        <img src="{% static 'Images/dj.png' %}" alt="Django icon">
-                                    {% else %}
-                                    {% endif %}
-                                </div>
-                                <div class="sn-art-tl">
-                                    <p class="art-title">{{ article.Title }}</p>
-                                    {% if article.read < '1' %}
-                                        <p class="read_time">less than 1 minutes</p>
-                                    {% elif article.read >= '1' %}
-                                        <p class="read_time">{{ article.read }} minutes</p>
-                                    {% elif article.read >= '10' %}
-                                        <p class="read_time">10 minutes</p>
-                                    {% else %}
-                                        <p></p>
-                                    {% endif %}
-                                </div>
-                                {% if article %}
-                                    <p class="ar-label">! New !</p>
-                                {% endif %}
-                            </div>
-                        </a>
-                    {% empty %}
-                        <div style="padding: 40px; background-color: #eeeeee; border-radius: 5px; margin: 5px 0">
-                            <p style="display: flex;
-                            flex-direction: column;
-                            justify-content: center;
-                            align-items: center;
-                            font-size: 1.2em;
-                            color:#2a2a2a;"> No Posts Posted of late </p>
-                        </div>
-                    {% endfor %}
-                </div>
-            </div>
+            {% endif %}
         </div>
         <div class="education-M">
             <h3>Learn coding for free.</h3>

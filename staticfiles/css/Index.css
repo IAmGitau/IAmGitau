@@ -241,22 +241,22 @@
   align-items: center;
 }
 .content .education-M .edu-c ul li {
+  list-style: none;
+}
+.content .education-M .edu-c ul li a {
+  margin: 0 5px;
+  box-shadow: none;
+  font-size: 1em;
   padding: 10px 15px;
   border: 1px solid #d5d5d5;
   background-color: white;
   border-radius: 5px;
-  list-style: none;
-  margin: 0 5px;
-  box-shadow: none;
-}
-.content .education-M .edu-c ul li:hover {
-  box-shadow: 0.2rem 0.1rem 0.2rem 0 rgba(100, 110, 140, 0.4);
-  border-color: #00cb74;
-}
-.content .education-M .edu-c ul li a {
-  font-size: 1em;
   font-family: "Roboto", "Lucida Grande", "DejaVu Sans", "Bitstream Vera Sans", Verdana, Arial, sans-serif;
   color: #2a2a2a;
+}
+.content .education-M .edu-c ul li a:hover {
+  box-shadow: 0.2rem 0.1rem 0.2rem 0 rgba(100, 110, 140, 0.4);
+  border-color: #00cb74;
 }
 
 @media only screen and (max-width: 1243px) {
