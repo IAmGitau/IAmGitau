@@ -1,0 +1,84 @@
+main {
+  width: 95%;
+}
+
+.content {
+  padding: 30px 0;
+  display: flex;
+  flex-direction: row;
+}
+.content .show-preview {
+  width: 100%;
+  border: 1px solid #dcdcdc;
+  overflow: auto;
+}
+.content .show-preview #preview_title {
+  text-align: center;
+  font-size: 1.4em;
+}
+.content form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 60%;
+  margin: 0 !important;
+  padding: 0 !important;
+  align-items: unset !important;
+}
+.content form .top-Form {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: unset !important;
+  padding: 20px 0;
+}
+.content form .top-Form h2 {
+  font-size: 1.5em;
+  color: #4f5ddf;
+  font-weight: bold;
+}
+.content form .top-Form button {
+  border: 1px solid #4f5ddf;
+  border-radius: 5px;
+  color: #4f5ddf;
+  padding: 5px 20px;
+  font-weight: bold;
+  font-size: 1.1em;
+  background-color: white;
+}
+.content form .top-Form button:hover {
+  background-color: #f4f4f4;
+}
+.content form .form {
+  width: 60%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+.content form .form input[type=text], .content form .form select {
+  border: 1px solid #4f5ddf;
+  border-radius: 5px;
+  outline: none;
+  color: #2a2a2a;
+  padding: 5px 0 5px 5px;
+}
+.content form .form input[type=text]:focus, .content form .form select:focus {
+  border-width: medium;
+}
+.content form .form label {
+  color: #2a2a2a;
+  font-size: 1em;
+  font-weight: bolder;
+}
+.content form .form textarea {
+  border: 1px solid #4f5ddf;
+  border-radius: 5px;
+  outline: none;
+  color: #2a2a2a;
+  padding: 10px;
+}
+.content form .form textarea:focus {
+  border-width: medium;
+}
+
+/*# sourceMappingURL=Form.c0ff7f8ba37c.css.map */
