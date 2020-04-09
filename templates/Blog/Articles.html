@@ -81,11 +81,8 @@
 
             SearchBar = document.getElementById("SearchBar");
             filter = SearchBar.value.toUpperCase();
-            console.log(filter);
             allArticles = document.getElementById("allArticles");
-            console.log('all');
             articleLink = allArticles.getElementsByClassName("articleLink");
-            console.log('art');
 
             for (i = 0; i < articleLink.length; i++) {
                 titleArticle = articleLink[i].getElementsByTagName("p")[0];
