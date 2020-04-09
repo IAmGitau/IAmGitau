@@ -26,7 +26,7 @@
   flex-direction: row;
   padding: 10px 0;
 }
-.content .arc-form .arc-fl-fm .arc-filters p {
+.content .arc-form .arc-fl-fm .arc-filters button {
   padding: 5px 15px;
   border-radius: 5px;
   border: 1px solid #00da84;
@@ -35,16 +35,17 @@
   font-size: 1.1em;
   margin: 0 2px;
   cursor: pointer;
+  outline: none;
 }
-.content .arc-form .arc-fl-fm .arc-filters p:hover {
+.content .arc-form .arc-fl-fm .arc-filters button:hover {
   background-color: #00cb74;
   color: white;
 }
-.content .arc-form .arc-fl-fm .colored p {
+.content .arc-form .arc-fl-fm .colored button {
   background-color: transparent;
   color: #2a2a2a;
 }
-.content .arc-form .arc-fl-fm .colored p:hover {
+.content .arc-form .arc-fl-fm .colored button:hover {
   background-color: #00cb74;
   color: white;
 }

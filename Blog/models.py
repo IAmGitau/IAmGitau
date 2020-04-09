@@ -1,4 +1,5 @@
 # flake8: noqa
+import datetime
 from django.contrib.auth.models import User
 from django.db import models
 from django.urls import reverse
@@ -36,19 +37,20 @@ class Blog(models.Model):
     Body = models.TextField(blank=False, null=False, help_text='Input blog body')
     slug = models.SlugField(max_length=200, null=False, blank=False, help_text='Article slug is required', unique=True)
     created_at = models.DateTimeField(_('created at'), default=timezone.now)
-    read_time = models.CharField(max_length=200)
     tag = models.CharField(max_length=200, blank=False, null=False, choices=topics, default=py)
     label = models.CharField(max_length=200, blank=False, null=False, choices=labels, default=noLabel)
 
     def __str__(self):
         return self.Title
 
+    def latest(self):
+        return self.created_at >= timezone.now() - datetime.timedelta(days=.2)
+
     def get_absolute_url(self):
         return reverse('Blog:Article_Detail', kwargs={'slug': self.slug})
 
     def read(self):
-        self.read_time = readTime(self.Body)
-        return self.read_time
+        return readTime(self.Body)
 
     class Meta:
         verbose_name = _('Blog')

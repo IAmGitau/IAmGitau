@@ -36,7 +36,7 @@
             <div class="lts-arc">
                 <div class="lts-msp-tl">
                     <h3>Latest articles</h3>
-                    <a href="{% url 'Blog:Articles' %}">View All</a>
+                    <a class="v-all" href="{% url 'Blog:Articles' %}">View All</a>
                 </div>
                 <div class="lts-msp-art">
                     {% for article in articles %}
@@ -49,7 +49,7 @@
             <div class="mst-p-arc">
                 <div class="lts-msp-tl" style="margin-top: 30px">
                     <h3>Most popular articles</h3>
-                    <a href="{% url 'Blog:Articles' %}">View All</a>
+                    <a class="v-all" href="{% url 'Blog:Articles' %}">View All</a>
                 </div>
                 <div class="lts-msp-art">
                     {% for article in articles %}
@@ -60,34 +60,38 @@
                 </div>
             </div>
             {% if challenges %}
-                <div class="mst-p-arc">
-                    <div class="lts-msp-tl" style="margin-top: 30px">
-                        <h3>Code Challenges </h3>
-                        <a href="{% url 'Blog:Articles' %}">View All</a>
+                {% ifchanged challenges %}
+                    <div class="mst-p-arc">
+                        <div class="lts-msp-tl" style="margin-top: 30px">
+                            <h3>Code Challenges </h3>
+                            <a class="v-all" href="{% url 'Blog:Articles' %}">View All</a>
+                        </div>
+                        <div class="lts-msp-art">
+                            {% for article in challenges %}
+                                {% include 'Blog/Include/SingleArticle.html' %}
+                            {% empty %}
+                                {% include 'Blog/Include/ArticleError.html' %}
+                            {% endfor %}
+                        </div>
                     </div>
-                    <div class="lts-msp-art">
-                        {% for article in challenges %}
-                            {% include 'Blog/Include/SingleArticle.html' %}
-                        {% empty %}
-                            {% include 'Blog/Include/ArticleError.html' %}
-                        {% endfor %}
-                    </div>
-                </div>
+                {% endifchanged %}
             {% endif %}
             {% if 100days %}
-                <div class="mst-p-arc">
-                    <div class="lts-msp-tl" style="margin-top: 30px">
-                        <h3>100 Days of code</h3>
-                        <a href="{% url 'Blog:Articles' %}">View All</a>
+                {% ifchanged 100days %}
+                    <div class="mst-p-arc">
+                        <div class="lts-msp-tl" style="margin-top: 30px">
+                            <h3>100 Days of code</h3>
+                            <a href="{% url 'Blog:Articles' %}">View All</a>
+                        </div>
+                        <div class="lts-msp-art">
+                            {% for article in 100days %}
+                                {% include 'Blog/Include/SingleArticle.html' %}
+                            {% empty %}
+                                {% include 'Blog/Include/ArticleError.html' %}
+                            {% endfor %}
+                        </div>
                     </div>
-                    <div class="lts-msp-art">
-                        {% for article in 100days %}
-                            {% include 'Blog/Include/SingleArticle.html' %}
-                        {% empty %}
-                            {% include 'Blog/Include/ArticleError.html' %}
-                        {% endfor %}
-                    </div>
-                </div>
+                {% endifchanged %}
             {% endif %}
         </div>
         <div class="education-M">

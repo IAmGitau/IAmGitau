@@ -20,31 +20,31 @@
                     </form>
                 </div>
             </div>
-            <div class="arc-fl-fm">
+            <div class="arc-fl-fm" id="filter">
                 <h2>Articles</h2>
                 <div class="arc-filters">
-                    <p>Vue js</p>
-                    <p>Express js</p>
-                    <p>node js</p>
-                    <p>Flutter</p>
+                    <button type="button">Vue js</button>
+                    <button type="button">Express js</button>
+                    <button type="button">node js</button>
+                    <button type="button">Flutter</button>
                 </div>
                 <div class="arc-filters colored">
-                    <p>Python</p>
-                    <p>Django</p>
-                    <p>Laravel</p>
-                    <p>Es6</p>
+                    <button type="button">Python</button>
+                    <button type="button">Django</button>
+                    <button type="button">Laravel</button>
+                    <button type="button">Es6</button>
                 </div>
                 <div class="arc-filters">
-                    <p>IDEs</p>
-                    <p>CodeChallenges</p>
-                    <p>#100DaysOfCode</p>
+                    <button type="button">IDEs</button>
+                    <button type="button">CodeChallenges</button>
+                    <button type="button">#100DaysOfCode</button>
                 </div>
             </div>
         </div>
         <div class="cly-arc" id="allArticles">
-            <div class="lts-msp-art">
+            <div class="lts-msp-art" id="lts">
                 {% for article in articles %}
-                   {% include 'Blog/Include/SingleArticle.html' %}
+                    {% include 'Blog/Include/SingleArticle.html' %}
                 {% empty %}
                     {% include 'Blog/Include/ArticleError.html' %}
                 {% endfor %}
@@ -73,6 +73,7 @@
         </div>
     </div>
 {% endblock %}
+
 {% block js %}
     <script>
         function SearchArticles() {
@@ -80,13 +81,13 @@
 
             SearchBar = document.getElementById("SearchBar");
             filter = SearchBar.value.toUpperCase();
+            console.log(filter);
             allArticles = document.getElementById("allArticles");
+            console.log('all');
             articleLink = allArticles.getElementsByClassName("articleLink");
-            {#noArticles = document.getElementById('noArticles');#}
+            console.log('art');
+
             for (i = 0; i < articleLink.length; i++) {
-                {#if (articleLink.length === i) {#}
-                {#noArticles.style.display = 'block';#}
-                {#    noArticles.style.display = 'none';#}
                 titleArticle = articleLink[i].getElementsByTagName("p")[0];
                 txtValue = titleArticle.textContent || titleArticle.innerText;
 
@@ -97,6 +98,59 @@
                 }
             }
         }
+
+        $(document).ready(() => {
+            function filterArticles() {
+
+                let art, single, lts, articleLinkF;
+                art = document.getElementById('filter');
+                single = art.getElementsByTagName('button');
+                lts = document.getElementById('lts');
+                articleLinkF = lts.getElementsByClassName('articleLink');
+
+                function fil(cargo) {
+                    for (let i = 0; i < articleLinkF.length; i++) {
+                        if (articleLinkF[i].querySelector(cargo)) {
+                            articleLinkF[i].style.display = ''
+                        } else {
+                            articleLinkF[i].style.display = 'none'
+                        }
+                    }
+                }
+
+                for (let i = 0; i < single.length; i++) {
+                    single[i].addEventListener('click', function () {
+                        if (single[i].innerHTML === 'Vue js') {
+                            fil('.vue')
+                        } else if (single[i].innerHTML === 'Python') {
+                            fil('.py')
+                        } else if (single[i].innerHTML === 'Django') {
+                            fil('.dj')
+                        } else if (single[i].innerHTML === 'Laravel') {
+                            fil('.lara')
+                        } else if (single[i].innerHTML === 'Es6' || single[i].innerHTML === 'js') {
+                            fil('.js')
+                        } else if (single[i].innerHTML === 'Express js') {
+                            fil('.ex')
+                        } else if (single[i].innerHTML === 'node js') {
+                            fil('.nodejs')
+                        } else if (single[i].innerHTML === 'Flutter') {
+                            fil('.flutter')
+                        } else if (single[i].innerHTML === 'IDEs') {
+                            fil('.ides-s')
+                        } else if (single[i].innerHTML === 'CodeChallenges') {
+                            fil('.challenge')
+                        } else if (single[i].innerHTML === '#100DaysOfCode') {
+                            fil('.DaysOfCode')
+                        } else {
+
+                        }
+                    })
+                }
+            }
+
+            filterArticles();
+        });
     </script>
     <script src="{% static 'js/search.js' %}"></script>
     <script src="{% static 'js/vData.js' %}"></script>

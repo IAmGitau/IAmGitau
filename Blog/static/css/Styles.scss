@@ -5,6 +5,12 @@
   box-sizing: border-box;
 }
 
+button, a[class=sub-btn],a[class=v-all], input[type=submit], input[type=button] {
+  &:active {
+    transform: scale(.9);
+  }
+}
+
 body {
   width: 100%;
   margin: 0 auto;

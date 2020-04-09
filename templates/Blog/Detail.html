@@ -14,7 +14,6 @@
     <link rel="stylesheet" href="{% static 'css/Header.css' %}">
     <link rel="stylesheet" href="{% static 'css/Detail.css' %}">
     <title>IamGitau | Full Stack Developer Articles</title>
-
 </head>
 
 <body class='typora-export os-windows'>
@@ -54,8 +53,8 @@
         {% if user.is_authenticated %}
             <div class="edit-delete">
                 <ul>
-                    <li><a style="background-color: #00da84" href="edit">edit</a></li>
-                    <li><a style="background-color: #ff2600;" href="delete">delete</a></li>
+                    <li><a class="v-all" style="background-color: #00da84" href="edit">edit</a></li>
+                    <li><a class="v-all" style="background-color: #ff2600;" href="delete">delete</a></li>
                 </ul>
             </div>
         {% endif %}

@@ -1,25 +1,8 @@
 {% load static %}
-<a href="{% url 'Blog:Article_Detail' article.slug %}">
+<a class="articleLink" href="{% url 'Blog:Article_Detail' article.slug %}">
     <div class="sn-art">
         <div class="sn-img">
-            {% if article.tag == 'javascript' or  article.tag == 'Es6' %}
-                <img src="{% static 'Images/jstr.png' %}" alt="Js icon">
-            {% elif article.tag == 'vue js' %}
-                <img src="{% static 'Images/vue.png' %}" alt="Js icon">
-            {% elif article.tag == 'Python' %}
-                <img src="{% static 'Images/python.jpg' %}" alt="python icon">
-            {% elif article.tag == 'Express js' %}
-                <img src="{% static 'Images/expressjslogo.png' %}" alt="Js icon">
-            {% elif article.tag == 'node js' %}
-                <img src="{% static 'Images/nodejs.svg' %}" alt="node js icon">
-            {% elif article.tag == 'Flutter' %}
-                <img src="{% static 'Images/flutter2.png' %}" alt="Flutter icon">
-            {% elif article.tag == 'Laravel' %}
-                <img src="{% static 'Images/Laravel.png' %}" alt="Laravel icon">
-            {% elif article.tag == 'Django' %}
-                <img src="{% static 'Images/dj.png' %}" alt="Django icon">
-            {% else %}
-            {% endif %}
+            {% include 'Blog/Include/ArticlePhoto.html' %}
         </div>
         <div class="sn-art-tl">
             <p class="art-title">{{ article.Title }}</p>
@@ -33,8 +16,9 @@
                 <p></p>
             {% endif %}
         </div>
-        {% if article %}
+        {% if article.latest %}
             <p class="ar-label">! New !</p>
+        {% else %}
         {% endif %}
     </div>
 </a>

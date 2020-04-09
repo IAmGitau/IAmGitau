@@ -1,0 +1,28 @@
+{% load static %}
+
+{% if article.tag == 'javascript' or  article.tag == 'Es6' %}
+    <img class="js" src="{% static 'Images/js2.png' %}" alt="Js icon">
+{% elif article.tag == 'vue js' %}
+    <img class="vue" src="{% static 'Images/vue.png' %}" alt="Js icon">
+{% elif article.tag == 'Python' %}
+    <img class="py" src="{% static 'Images/python.jpg' %}" alt="python icon">
+{% elif article.tag == 'Express js' %}
+    <img class="ex" src="{% static 'Images/expressjslogo.png' %}" alt="Js icon">
+{% elif article.tag == 'node js' %}
+    <img class="nodejs" src="{% static 'Images/nodejs.svg' %}" alt="node js icon">
+{% elif article.tag == 'Flutter' %}
+    <img class="flutter" src="{% static 'Images/flutter2.png' %}" alt="Flutter icon">
+{% elif article.tag == 'Laravel' %}
+    <img class="lara" src="{% static 'Images/Laravel.png' %}" alt="Laravel icon">
+{% elif article.tag == 'Django' %}
+    <img class="dj" src="{% static 'Images/dj.png' %}" alt="Django icon">
+{% elif article.tag == 'goland' %}
+    <img class="ides-s" src="{% static 'Images/flutter2.png' %}" alt="goland logo">
+{% elif article.tag == 'webstorm' %}
+    <img class="ides-s" src="{% static 'Images/flutter2.png' %}" alt="webstorm logo">
+{% elif article.tag == 'phpstorm' %}
+    <img class="ides-s" src="{% static 'Images/Laravel.png' %}" alt="phpstorm logo">
+{% elif article.tag == 'pycharm' %}
+    <img class="ides-s" src="{% static 'Images/dj.png' %}" alt="pycharm logo">
+{% else %}
+{% endif %}

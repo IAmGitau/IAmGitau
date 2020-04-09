@@ -49,8 +49,8 @@
       text-align: left;
 
       h1 {
-        font-size: 1.5em;
-        color: #4f5ddf;
+        font-size: 1.7em;
+        color: #00d37b;
         font-weight: bolder;
         margin: 0;
       }
@@ -62,8 +62,8 @@
 
         p {
           color: #2a2a2a;
-          font-size: .8em;
-          line-height: 1;
+          font-size: .9em;
+          line-height: .5;
           padding: 5px 0;
           margin: 0;
           text-align: left;
@@ -87,5 +87,41 @@
     font-size: 1.1em;
     line-height: 2;
     padding: 20px 0;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .content {
+    width: 90%;
+  }
+}
+
+@media only screen and (max-width: 850px) {
+  .content p {
+    font-size: 1em;
+  }
+  .content .edit-delete ul {
+    width: 50%;
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  main {
+    width: 95%;
+  }
+  .content .c-header {
+    height: 30vh;
+    flex-direction: column;
+  }
+  .content .c-header img {
+    width: 50px;
+    height: 60px;
+  }
+  .content .c-header .h-detail {
+    padding-left: 0;
+  }
+  .content .c-header .h-detail h1 {
+    font-size: 1.3em;
+    font-weight: 600;
   }
 }
