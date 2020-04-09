@@ -1,0 +1,47 @@
+* {
+  padding: 0;
+  margin: 0;
+  font-family: "Gotu", sans-serif;
+  box-sizing: border-box;
+}
+
+button:active, a[class=sub-btn]:active, a[class=v-all]:active, input[type=submit]:active, input[type=button]:active {
+  transform: scale(0.9);
+}
+
+body {
+  width: 100%;
+  margin: 0 auto;
+}
+
+main {
+  padding-top: 60px;
+  width: 70%;
+  margin: 0 auto;
+}
+
+a {
+  text-decoration: none;
+}
+
+::selection {
+  background-color: #00da84;
+  color: white;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), inset 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  background-color: #00cb74;
+}
+
+/*# sourceMappingURL=Styles.8b1f37b23b82.css.map */

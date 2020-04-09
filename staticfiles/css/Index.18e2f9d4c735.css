@@ -89,10 +89,8 @@
   box-shadow: 0.5rem 1.25rem 1.75rem 0 rgba(100, 110, 140, 0.4);
 }
 .content .my-intro .sub-to .email-form .my-img img {
-  width: 130px;
+  width: 100px;
   height: 80%;
-  border-radius: 50%;
-  filter: brightness(100%);
 }
 .content .my-intro .sub-to .email-form h2 {
   font-weight: bold;
@@ -389,4 +387,4 @@
   }
 }
 
-/*# sourceMappingURL=Index.css.map */
+/*# sourceMappingURL=Index.18e2f9d4c735.css.map */

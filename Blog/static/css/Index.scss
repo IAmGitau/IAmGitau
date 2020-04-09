@@ -101,8 +101,11 @@
 
         .my-img {
           img {
-            width: 100px;
+            width: 130px;
             height: 80%;
+            border-radius: 50%;
+            filter: brightness(100%);
+            //filter: opacity(100%);
           }
         }
 
