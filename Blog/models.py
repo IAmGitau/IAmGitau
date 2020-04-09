@@ -44,7 +44,7 @@ class Blog(models.Model):
         return self.Title
 
     def latest(self):
-        return self.created_at >= timezone.now() - datetime.timedelta(days=.2)
+        return self.created_at >= timezone.now() - datetime.timedelta(days=.5)
 
     def get_absolute_url(self):
         return reverse('Blog:Article_Detail', kwargs={'slug': self.slug})
