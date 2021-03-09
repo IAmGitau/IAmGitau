@@ -10,10 +10,10 @@
                 <h1>✋ Hey, I'm Joseph Gitau.</h1>
                 <p>
                     I'm a full stack software developer. I write about Python,
-                    Vue js, Express js, modern JavaScript, Django,Golang, Flutter or Dart and Dotnet Core Framework, Unity, Blender and Space travel #Kromon
+                    Vue js, Express js, modern JavaScript, Django,Golang, Flutter or Dart and Dotnet Core Framework.
                 </p>
                 <div class="git-hub">
-                    <a target="_blank" href="https://github.com/IAmGitau" style='text-decoration:none;'>
+                    <a target="_blank" href="https://github.com/gitaoh" style='text-decoration:none;'>
                         <div class="git-name">
                             <img src="{% static 'Images/github.svg' %}" alt="github icon">
                             <span>Joseph Gitau</span>
@@ -23,9 +23,11 @@
             </div>
             <div class="sub-to">
                 <div class="email-form">
-                    <div class="my-img">
-                        <img src="https://raw.githubusercontent.com/IAmGitau/IAmGitau/master/ides/me.jpg" alt="photo">
-                    </div>
+                    <img 
+                        src="{% static 'Images/me.jpg' %}" 
+                        alt="photo" 
+                        style="width: 130px;height: 80%;border-radius: 50%;filter: brightness(100%);"
+                    >
                     <h2>Email Newsletters</h2>
                     <p>Subscribe today to get email updates when a I post a new article.</p>
                     <a class="sub-btn" href="{% url 'Blog:Subscribe' %}">Subscribe</a>
@@ -108,5 +110,5 @@
         </div>
     </div>
 {% endblock %}
-{% block js %}
-{% endblock %}
+
+{% block js %}{% endblock %}

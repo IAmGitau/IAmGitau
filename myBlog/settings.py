@@ -24,11 +24,17 @@ SECRET_KEY = '!0a^g&a!mwq$7j&68o_wcc9$p-15bgqfof@^9p(4=+%n4dvnl7'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-# 'iamgitau.herokuapp.com'
-ALLOWED_HOSTS = ['iamgitau.herokuapp.com']
+
+if bool(os.environ.get('DEBUG')):
+    DEBUG = False
+
+ALLOWED_HOSTS = ['*']
+
+if bool(os.environ.get('DEBUG')):
+    # 'iamgitau.herokuapp.com'
+    ALLOWED_HOSTS = ['iamgitau.herokuapp.com']
 
 # Application definition
-
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -40,6 +46,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'crispy_forms',
 ]
+
 CRISPY_TEMPLATE_PACK = 'bootstrap3'
 
 MIDDLEWARE = [
@@ -123,4 +130,5 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
 django_heroku.settings(locals())
