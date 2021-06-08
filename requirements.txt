@@ -31,7 +31,7 @@ markdown2==2.3.8
 MarkupSafe==1.1.1
 mccabe==0.6.1
 mysqlclient==1.4.6
-Pillow==7.0.0
+Pillow==8.2.0
 psycopg2==2.8.4
 pycodestyle==2.5.0
 pycparser==2.20
